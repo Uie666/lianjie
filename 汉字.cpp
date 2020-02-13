@@ -1,5 +1,4 @@
-#include<stdio.h>
-#include<string.h>
+#include <bits/stdc++.h> // 万能头文件 
 char list[11][3]={"零","一","二","三","四","五","六","七","八","九","十"}; 
 int swap(char a[]){
     int i;
@@ -46,8 +45,8 @@ int judge(int n,char a[],char b[]){
     else if(strcmp(a,"除以")==0) return n/sum1;
 }
 int main(){
-    int i,sum,w;
-    char a[100],b[100],c[100],d[100],e[100],f[100],g[100],h[100],p[100],j[100];
+    int i,sum,w,sum2;
+    char a[100],b[100],c[100],d[100],e[100],f[100],g[100],h[100],p[100],j[100],k[100],z[100],o[100];
     scanf("%s",a);
     if(!strcmp(a,"整数")){
         scanf("%s %s %s",a,b,c);
@@ -57,9 +56,55 @@ int main(){
         return 0;
     }
     sum=num(c);
+
     while(scanf("%s %s",d,b)!=EOF){
+    	if(!strcmp(d,"整数")){
+    		
+		        scanf("%s %s",f,g); 
+		        sum2=num(g);
+		        
+		        scanf("%s",p);
+		        if(strcmp(p,"如果"))
+		        {
+				scanf("%s %s",j,k); 
+	            
+                sum=judge(sum,j,k); 
+			   
+                if(sum>=99||sum<=0){
+                    printf("超出可容纳范围\n");
+                    return 0;
+                }          
+				}
+			
+				
+					scanf("%s %s %s %s %s %s %s %s %s %s",b,c,d,e,f,g,h,o,j,z);
+					scanf("%s %s",a,b);
+					
+					
+					if(sum>8)
+					{sum2=sum2+1; 
+					 if(sum2>=0&&sum2<=10){
+                    printf("%s\n",list[sum2]);}
+                    else{
+					
+					if(sum2%10==0){
+	                printf("%s十\n",list[sum2/10]);
+	                }
+	                else if(sum2<=19){
+	                printf("十%s\n",list[sum2%10]);
+	                }
+	                else {
+	                printf("%s十%s\n",list[sum2/10],list[sum2%10]);
+	                }	}			
+					}
+					else{printf("无");
+					}
+					
+		} 
+ 	else{
         if(strcmp(d,"看看")){ 
             scanf("%s",c);
+       
             if(!strcmp(a,d)){
                 sum=judge(sum,b,c);       
                 if(sum>=99||sum<=0){
@@ -67,7 +112,7 @@ int main(){
                     return 0;
                 }
             }
-            else {printf("变量不匹配\n");
+            else {printf("变量不匹\n");
                 return 0;
             } 
         }
@@ -92,7 +137,7 @@ int main(){
 			{printf("你好，世界");}
 			else
 			{printf("冻死我了");}
-        }
+        }}
     }
    
 return 0;       
